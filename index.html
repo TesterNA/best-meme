@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбери лучший мем</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #282c34;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .meme-container {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    button {
+	  margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #61dafb;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+    }
+
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    button:hover:enabled {
+      background-color: #21a1f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Выбери лучший мем</h1>
+  <div class="meme-container">
+    <video controls>
+      <source src="./meme.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+    <label>
+      <input type="radio" name="meme" value="meme1" onclick="toggleButton()">
+      Этот мем
+    </label>
+  </div>
+  <button id="voteButton" onclick="vote()" disabled>Проголосовать</button>
+
+  <script>
+    function toggleButton() {
+      const memeSelected = document.querySelector('input[name="meme"]:checked');
+      const voteButton = document.getElementById('voteButton');
+      if (memeSelected) {
+        voteButton.disabled = false;
+      } else {
+        voteButton.disabled = true;
+      }
+    }
+
+    function vote() {
+      alert("Вот-так вот, Максимка");
+    }
+
+    toggleButton();
+  </script>
+</body>
+</html>
